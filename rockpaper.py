@@ -29,7 +29,7 @@ def showdown(human_choice, computer_guess, h_obj, c_obj):
         print('Were all getting our Rocks on today!')
         print('------------------------------------')
     elif (human_choice, computer_guess) == (2, 2):
-        print('Paper is on sale at Office Depot!!!!')
+        print('Paper is on sale by the case at Office Depot!!!!')
         print('------------------------------------')
     elif (human_choice, computer_guess) == (3, 3):
         print('Scissors! Dead Again is a great movie!')
