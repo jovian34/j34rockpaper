@@ -1,40 +1,63 @@
 import players
 
-def showdown(human_choice, computer_guess, h_obj, c_obj):
-    if (human_choice, computer_guess) == (1, 3):
-        print('Rock crushes scissors. Human Wins!')
-        print('-------------------------------------')
-        h_obj.add_to_score()
-    elif (human_choice, computer_guess) == (1, 2):
-        print('Paper smothers rock. Computer Wins!')
-        print('-------------------------------------')
-        c_obj.add_to_score()
-    elif (human_choice, computer_guess) == (2, 1):
-        print('Paper smothers rock. Human Wins!')
-        print('-------------------------------------')
-        h_obj.add_to_score()
-    elif (human_choice, computer_guess) == (2, 3):
-        print('Scissors cut paper. Computer Wins!')
-        print('-------------------------------------')
-        c_obj.add_to_score()
-    elif (human_choice, computer_guess) == (3, 2):
-        print('Scissors cut paper. Human Wins!')
-        print('-------------------------------------')
-        h_obj.add_to_score()
-    elif (human_choice, computer_guess) == (3, 1):
-        print('Rock crushes scissors. Computer Wins!')
-        print('-------------------------------------')
-        c_obj.add_to_score()
-    elif (human_choice, computer_guess) == (1, 1):
-        print('Were all getting our Rocks on today!')
-        print('------------------------------------')
-    elif (human_choice, computer_guess) == (2, 2):
-        print('Paper is on sale by the case at Office Depot!!!!')
-        print('------------------------------------')
-    elif (human_choice, computer_guess) == (3, 3):
-        print('Scissors! Dead Again is a great movie!')
-        print('--------------------------------------')
-    else:
+def one_three(h_obj, c_obj):
+    print('Rock crushes scissors. Human Wins!')
+    print('-------------------------------------')
+    h_obj.add_to_score()
+    
+def one_two(h_obj, c_obj):
+    print('Paper smothers rock. Computer Wins!')
+    print('-------------------------------------')
+    c_obj.add_to_score()
+    
+def two_one(h_obj, c_obj):
+    print('Paper smothers rock. Human Wins!')
+    print('-------------------------------------')
+    h_obj.add_to_score()
+    
+def two_three(h_obj, c_obj):
+    print('Scissors cut paper. Computer Wins!')
+    print('-------------------------------------')
+    c_obj.add_to_score()
+    
+def three_two(h_obj, c_obj):
+    print('Scissors cut paper. Human Wins!')
+    print('-------------------------------------')
+    h_obj.add_to_score()
+    
+def three_one(h_obj, c_obj):
+    print('Rock crushes scissors. Computer Wins!')
+    print('-------------------------------------')
+    c_obj.add_to_score()
+    
+def one_one(h_obj, c_obj):
+    print('Were all getting our Rocks on today!')
+    print('------------------------------------')
+
+def two_two(h_obj, c_obj):
+    print('Paper is on sale by the case at Office Depot!!!!')
+    print('------------------------------------')
+    
+def three_three(h_obj, c_obj):
+    print('Scissors! Dead Again is a great movie!')
+    print('--------------------------------------')
+    
+showdown_map = { 
+    (1, 3): one_three,
+    (1, 2): one_two,
+    (2, 1): two_one,
+    (2, 3): two_three,
+    (3, 2): three_two,
+    (3, 1): three_one,
+    (1, 1): one_one,
+    (2, 2): two_two,
+    (3, 3): three_three,
+}
+
+def showdown(showdown_map, human_choice, computer_guess, h_obj, c_obj):
+    try:
+        showdown_map[(human_choice, computer_guess)](h_obj, c_obj)
+    except KeyError:
         print('Hmmm... something is wrong with the code.')
      
 
