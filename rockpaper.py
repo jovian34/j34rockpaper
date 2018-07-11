@@ -54,6 +54,7 @@ showdown_map = {
     (3, 3): three_three,
 }
 
+
 def showdown(showdown_map, human_choice, computer_guess, h_obj, c_obj):
     try:
         showdown_map[(human_choice, computer_guess)](h_obj, c_obj)
@@ -68,7 +69,7 @@ def main():
         print('Human: {} ... '
               'Computer: {}'.format(human.score, computer.score))
         print('====================================================')
-        showdown(human.user_output(),computer.get_random(), human, computer)
+        showdown(showdown_map, human.user_output(), computer.get_random(), human, computer)
     if human.score > computer.score:
         print('Human wins by score '
               'of {} to {}'.format(human.score, computer.score))
