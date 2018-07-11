@@ -1,5 +1,6 @@
 import random
 
+
 class Player(object):
 
     def __init__(self):
@@ -7,9 +8,10 @@ class Player(object):
 
     def add_to_score(self):
         self.score += 1
-        
+
+
 class Human(Player):
-    
+
     def _get_user_input(self):
         options = ['r', 'p', 's']
         print('choose (r)ock, (p)aper, or (s)cissors: ', end='')
@@ -40,4 +42,3 @@ class Computer(Player):
 
     def get_random(self):
         return random.randint(1, 3)
-
