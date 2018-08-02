@@ -64,13 +64,6 @@ showdown_map = {
 }
 
 
-def showdown(showdown_map, human_choice, computer_guess, h_obj, c_obj):
-    try:
-        showdown_map[(human_choice, computer_guess)](h_obj, c_obj)
-    except KeyError:
-        print('Hmmm... something is wrong with the code.')
-     
-
 def main():
     human = players.Human()
     computer = players.Computer()
@@ -78,7 +71,7 @@ def main():
         print(f'Human: {human.score} ... '
               f'Computer: {computer.score}')
         print('====================================================')
-        showdown(showdown_map, human.user_output(), computer.get_random(), human, computer)
+        showdown_map[(human.user_output(), computer.get_random())](human, computer)
     if human.score > computer.score:
         print('Human wins by score '
               f'of {human.score} to {computer.score}')

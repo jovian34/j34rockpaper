@@ -20,7 +20,7 @@ class Human(Player):
             return choice[0]
         else:
             print('Invalid choice... please try again. *must be lowercase*')
-            return _get_user_input()
+            return self._get_user_input()
 
     def _process_choice(self, choice):
         if choice[0] == 'r':
