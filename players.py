@@ -16,10 +16,10 @@ class Human(Player):
         options = ['r', 'p', 's']
         print('choose (r)ock, (p)aper, or (s)cissors: ', end='')
         choice = input()
-        if choice[0] in options:
-            return choice[0]
+        if choice[0].lower() in options:
+            return choice[0].lower()
         else:
-            print('Invalid choice... please try again. *must be lowercase*')
+            print('Invalid choice... please try again.')
             return self._get_user_input()
 
     def _process_choice(self, choice):
