@@ -1,4 +1,13 @@
 import players
+from os import environ, system, name
+from time import sleep
+
+
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 
 def rock_crushes_scissors(h_obj, c_obj):
@@ -66,6 +75,7 @@ showdown_map = {
 
 
 def main():
+    environ['TERM'] = 'xterm'
     human = players.Human()
     computer = players.Computer()
     while human.score < 10 and computer.score < 10:
@@ -75,6 +85,8 @@ def main():
         human.set_user_choice()
         computer.set_random_choice()
         showdown_map[(human.choice, computer.choice)](human, computer)
+        sleep(3)
+        clear()
     if human.score > computer.score:
         print('Human wins by score '
               f'of {human.score} to {computer.score}')
