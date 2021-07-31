@@ -5,6 +5,7 @@ class Player(object):
 
     def __init__(self):
         self.score = 0
+        self.choice = 'START'
 
     def add_to_score(self):
         self.score += 1
@@ -12,33 +13,33 @@ class Player(object):
 
 class Human(Player):
 
-    def _get_user_input(self):
+    def get_user_input(self):
         options = ['r', 'p', 's']
         print('choose (r)ock, (p)aper, or (s)cissors: ', end='')
-        choice = input()
-        if choice[0].lower() in options:
-            return choice[0].lower()
+        self.choice = input()
+        if self.choice[0].lower() in options:
+            self.choice = self.choice[0].lower()
         else:
             print('Invalid choice... please try again.')
-            return self._get_user_input()
+            return self.get_user_input()
 
-    def _process_choice(self, choice):
-        if choice[0] == 'r':
+    def process_choice(self):
+        if self.choice == 'r':
             print('You chose rock!')
-            return 1
-        if choice[0] == 'p':
+            self.choice = 'rock'
+        if self.choice == 'p':
             print('You chose paper!')
-            return 2
-        if choice[0] == 's':
+            self.choice = 'paper'
+        if self.choice == 's':
             print('You chose scissors!')
-            return 3
+            self.choice = 'scissors'
 
-    def user_output(self):
-        choice = self._get_user_input()
-        return self._process_choice(choice)
+    def set_user_choice(self):
+        self.get_user_input()
+        self.process_choice()
 
 
 class Computer(Player):
 
-    def get_random(self):
-        return random.randint(1, 3)
+    def set_random_choice(self):
+        self.choice = random.randint(1, 3)
