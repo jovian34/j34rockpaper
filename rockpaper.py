@@ -3,7 +3,7 @@ from os import environ, system, name
 from time import sleep
 
 
-def clear():
+def clear_screen():
     if name == 'nt':
         _ = system('cls')
     else:
@@ -47,17 +47,17 @@ def scissors_crushed_by_rock(h_obj, c_obj):
     
 
 def rock_push(h_obj, c_obj):
-    print('Were all getting our Rocks on today!')
+    print("Computer also chose Dwayne Johnson. We're all getting our Rocks on today!")
     print('------------------------------------')
 
 
 def paper_push(h_obj, c_obj):
-    print('Paper is on sale by the case at Office Depot!!!!')
+    print('Computer chose Paper too. Paper is on sale by the case at Office Depot!!!!')
     print('------------------------------------')
     
 
 def scissor_push(h_obj, c_obj):
-    print('Scissors! Dead Again is a great movie!')
+    print('Computer also chose Scissors. Dead Again is a great movie BTW!')
     print('--------------------------------------')
     
 
@@ -86,7 +86,7 @@ def main():
         computer.set_random_choice()
         showdown_map[(human.choice, computer.choice)](human, computer)
         sleep(3)
-        clear()
+        clear_screen()
     if human.score > computer.score:
         print('Human wins by score '
               f'of {human.score} to {computer.score}')
