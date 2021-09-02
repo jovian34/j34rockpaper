@@ -1,4 +1,4 @@
-import players
+from players import Human, Computer
 from os import environ, system, name
 from time import sleep
 
@@ -76,8 +76,8 @@ showdown_map = {
 
 def main():
     environ['TERM'] = 'xterm'
-    human = players.Human()
-    computer = players.Computer()
+    human = Human()
+    computer = Computer()
     while human.score < 10 and computer.score < 10:
         print(f'Human: {human.score} ... '
               f'Computer: {computer.score}')
